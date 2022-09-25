@@ -67,6 +67,12 @@
     background-position: center;
     cursor: pointer;
     background-repeat: no-repeat;
+    transition: 0.3s;
+}
+
+.checkOff:hover
+{
+    background-image: url('/public/todo_hover.svg');
 }
 
 .todo h4
