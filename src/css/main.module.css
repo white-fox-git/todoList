@@ -34,18 +34,58 @@
     align-items: center;
 }
 
+.hidden
+{
+    display: none;
+}
+
 .todoInfo
 {
-    width: 90%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.checkOn
+{
+    width: 24px;
+    height: 24px;
+    background-image: url('/public/todo_check.svg');
+    background-size: 95%;
+    background-position: center;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+
+.checkOff
+{
+    width: 24px;
+    height: 24px;
+    background-image: url('/public/todo_none.svg');
+    background-size: 95%;
+    background-position: center;
+    cursor: pointer;
+    background-repeat: no-repeat;
 }
 
 .todo h4
 {
     font-weight: 700;
     font-size: 18px;
+}
+
+.checkTodo
+{
+    text-decoration: line-through;
+    color: gray;
+}
+
+.trashCan
+{
+    font-size: 18px;
+    color: var(--gray-color);
+    cursor: pointer
 }
 
 .addTodo

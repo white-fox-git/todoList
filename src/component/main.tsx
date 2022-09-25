@@ -5,7 +5,7 @@
 import { useState } from 'react';
 import style from '../css/main.module.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faPencil } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 const Main = () => {
 
@@ -26,12 +26,13 @@ const Main = () => {
                     todoList.map((item, idx) => {
                         return(
                             <div className={style.todo} key={idx}>
-                                <label htmlFor={item.title+idx}></label>
-                                <input id={item.title+idx} type="checkbox"/>
+                                <label htmlFor={item.title+idx} className={item.check == true ? style.checkOn : style.checkOff}/>
+                                <input id={item.title+idx} type="checkbox" className={style.hidden}/>
                                 <div className={style.todoInfo}>
-                                    <h4>{item.title}</h4>
+                                    <h4 className={item.check == true ? style.checkTodo : ''}>{item.title}</h4>
                                     <p>{item.date}</p>
                                 </div>
+                                <FontAwesomeIcon icon={faTrashCan} className={style.trashCan}/>
                             </div>
                         )
                     })
