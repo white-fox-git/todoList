@@ -1,0 +1,77 @@
+@import url('./setting.css');
+
+.header
+{
+    font-family: var(--Noto);
+    background-color: var(--main-color);
+    color: var(--white-color);
+    padding: 24px;
+}
+
+.main
+{
+    font-family: var(--Noto);
+}
+
+/* 공통 */
+
+.headerText
+{
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.todo
+{
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    max-width: 650px;
+    border-bottom: 1px solid var(--gray-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todoInfo
+{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo h4
+{
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.addTodo
+{
+    width: 80%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    max-width: 650px;
+    border: 1px dashed var(--gray-color);
+    border-radius: 14px;
+    margin: 0 auto;
+    margin-top: 30px;
+    cursor: pointer;
+    text-align: center;
+    color: var(--gray-color);
+    transition: 0.3s;
+}
+
+.addTodo h4
+{
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.addTodo:hover
+{
+    border: 1px dashed var(--hover-color);
+    color: var(--hover-color);
+}
