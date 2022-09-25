@@ -6,15 +6,13 @@ import { useState } from 'react';
 import style from '../css/main.module.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { useSelector, useDispatch } from 'react-redux';
+import {remove} from '../util/store';
 
 const Main = () => {
 
-    const [todoList, setTodoList] = useState(
-        [
-            {title : "Type Script Study", check : false, date : '2022-09-30'},
-            {title : "Java Script Study", check : true, date : '2022-09-30'}
-        ]
-    )
+    let todoList = useSelector((state) => state.todo);
+    let dispatch = useDispatch();
 
     return(
         <>
@@ -23,7 +21,7 @@ const Main = () => {
             </header>
             <main className={style.main}>
                 {
-                    todoList.map((item, idx) => {
+                    todoList != null ? todoList.map((item, idx) => {
                         return(
                             <div className={style.todo} key={idx}>
                                 <label htmlFor={item.title+idx} className={item.check == true ? style.checkOn : style.checkOff}/>
@@ -32,10 +30,12 @@ const Main = () => {
                                     <h4 className={item.check == true ? style.checkTodo : ''}>{item.title}</h4>
                                     <p>{item.date}</p>
                                 </div>
-                                <FontAwesomeIcon icon={faTrashCan} className={style.trashCan}/>
+                                <FontAwesomeIcon icon={faTrashCan} className={style.trashCan} onClick={() => {dispatch(remove(idx))}}/>
                             </div>
                         )
                     })
+                    :
+                    null
                 }
                 <div className={style.addTodo}>
                     <h4>Add Todo List</h4>
