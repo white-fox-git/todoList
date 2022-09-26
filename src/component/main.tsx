@@ -8,11 +8,13 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
 import {remove} from '../util/store';
+import {useNavigate} from 'react-router-dom';
 
 const Main = () => {
 
     let todoList:[] = useSelector((state:any) => state.todo);
     let dispatch = useDispatch();
+    let navigate = useNavigate();
 
     return(
         <>
@@ -37,7 +39,7 @@ const Main = () => {
                     :
                     null
                 }
-                <div className={style.addTodo}>
+                <div className={style.addTodo} onClick={() => {navigate('/add')}}>
                     <h4>Add Todo List</h4>
                 </div>
             </main>

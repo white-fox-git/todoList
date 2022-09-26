@@ -12,11 +12,19 @@ let todo = createSlice({
             })
             localStorage.setItem('todo', JSON.stringify(copy));
             return copy;
+        },
+        addTodo(state, info){
+          let todoInfo = info.payload;
+          let item = {title : todoInfo.title, check : false, date : todoInfo.date};
+          let copy = [...state];
+          copy.push(item);
+          localStorage.setItem('todo', JSON.stringify(copy));
+          return copy;
         }
     }
 })
 
-export let {remove} = todo.actions;
+export let {remove, addTodo} = todo.actions;
 
 export default configureStore({
   reducer: { 
