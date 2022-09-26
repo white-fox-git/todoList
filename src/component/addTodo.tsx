@@ -26,8 +26,14 @@ const AddTodo = () => {
                     <p className={style.inputTitle} >Date</p>
                     <input type="date" className={style.date} onChange={(e) => {setDate(e.target.value)}}/>
                     <button className={style.submit} onClick={() => {
-                        dispatch(addTodo({title : todo, date : date}));
-                        navigate('/');
+                        if(todo != '' && date != null){
+                            dispatch(addTodo({title : todo, date : date}));
+                            navigate('/');
+                        }
+                        else
+                        {
+                            alert('입력값이 잘못 되었습니다');
+                        }
                     }}>Submit</button>
                 </div>
             </main>

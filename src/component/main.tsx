@@ -7,7 +7,7 @@ import style from '../css/main.module.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
-import {remove} from '../util/store';
+import {remove, check} from '../util/store';
 import {useNavigate} from 'react-router-dom';
 
 const Main = () => {
@@ -26,7 +26,7 @@ const Main = () => {
                     todoList != null ? todoList.map((item:any, idx:any) => {
                         return(
                             <div className={style.todo} key={idx}>
-                                <label htmlFor={item.title+idx} className={item.check == true ? style.checkOn : style.checkOff}/>
+                                <label htmlFor={item.title+idx} className={item.check == true ? style.checkOn : style.checkOff} onClick={() => dispatch(check(idx))}/>
                                 <input id={item.title+idx} type="checkbox" className={style.hidden}/>
                                 <div className={style.todoInfo}>
                                     <h4 className={item.check == true ? style.checkTodo : ''}>{item.title}</h4>
