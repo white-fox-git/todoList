@@ -2,7 +2,7 @@ import {Routes, Route} from 'react-router-dom';
 import Main from './component/main';
 import AddTodo from './component/addTodo';
 
-const Router = () => {
+const RouterApp = () => {
     return(
         <Routes>
             <Route path="/" element={<Main />} />
@@ -11,4 +11,4 @@ const Router = () => {
     )
 }
 
-export default Router;
+export default RouterApp;
