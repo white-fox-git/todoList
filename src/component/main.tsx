@@ -11,7 +11,7 @@ import {remove} from '../util/store';
 
 const Main = () => {
 
-    let todoList = useSelector((state) => state.todo);
+    let todoList:[] = useSelector((state:any) => state.todo);
     let dispatch = useDispatch();
 
     return(
@@ -21,7 +21,7 @@ const Main = () => {
             </header>
             <main className={style.main}>
                 {
-                    todoList != null ? todoList.map((item, idx) => {
+                    todoList != null ? todoList.map((item:any, idx:any) => {
                         return(
                             <div className={style.todo} key={idx}>
                                 <label htmlFor={item.title+idx} className={item.check == true ? style.checkOn : style.checkOff}/>
